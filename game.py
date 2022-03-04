@@ -1,3 +1,5 @@
-from games import chess
+from games.chess import *
 
-Chess(ChessBoard())
+chess = Chess(ChessBoard())
+chess.print_state()
+chess.get_players()

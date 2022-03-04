@@ -36,10 +36,12 @@ class GamePiece(ABC):
     @abstractmethod
     def get_name(self):
         pass
-
+    
+    @abstractmethod
     def get_movements(self):
         pass
 
+    @abstractmethod
     def get_image(self, size):
         pass
 
