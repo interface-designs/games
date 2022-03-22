@@ -1,5 +1,5 @@
 from game_interface.interface import *
-from enums.chess import *
+from games.enums.chess import *
 
 
 class ChessBoard(GameState):
@@ -63,22 +63,28 @@ class ChessPiece(GamePiece):
                 Movements.rook
             ),
             'b': (
-
+                'Knight',
+                Movements.knight
             ),
             'c': (
-
+                'Bishop',
+                Movements.bishop
             ),
             'd': (
-
+                'Queen',
+                Movements.queen
             ),
             'e': (
-
+                'King',
+                Movements.king
             ),
             'f': (
-
+                'Bishop',
+                Movements.bishop
             ),
             'g': (
-
+                'Knight',
+                Movements.knight
             ),
             'h': (
                 'Rook',
@@ -87,159 +93,111 @@ class ChessPiece(GamePiece):
         },
         2: {
            'a': (
-               
+                'Pawn',
+                Movements.pawn
             ),
             'b': (
-
+                'Pawn',
+                Movements.pawn
             ),
             'c': (
-
+                'Pawn',
+                Movements.pawn
             ),
             'd': (
-
+                'Pawn',
+                Movements.pawn
             ),
             'e': (
-
+                'Pawn',
+                Movements.pawn
             ),
             'f': (
-
+                'Pawn',
+                Movements.pawn
             ),
             'g': (
-
+                'Pawn',
+                Movements.pawn
             ),
             'h': (
-                
+                'Pawn',
+                Movements.pawn
             ) 
         },
         3: {
-           'a': (
-               
-            ),
-            'b': (
-
-            ),
-            'c': (
-
-            ),
-            'd': (
-
-            ),
-            'e': (
-
-            ),
-            'f': (
-
-            ),
-            'g': (
-
-            ),
-            'h': (
-                
-            ) 
+            'a': (),
+            'b': (),
+            'c': (),
+            'd': (),
+            'e': (),
+            'f': (),
+            'g': (),
+            'h': ()
         },
         4: {
-           'a': (
-               
-            ),
-            'b': (
-
-            ),
-            'c': (
-
-            ),
-            'd': (
-
-            ),
-            'e': (
-
-            ),
-            'f': (
-
-            ),
-            'g': (
-
-            ),
-            'h': (
-                
-            ) 
+            'a': (),
+            'b': (),
+            'c': (),
+            'd': (),
+            'e': (),
+            'f': (),
+            'g': (),
+            'h': ()
         },
         5: {
-           'a': (
-               
-            ),
-            'b': (
-
-            ),
-            'c': (
-
-            ),
-            'd': (
-
-            ),
-            'e': (
-
-            ),
-            'f': (
-
-            ),
-            'g': (
-
-            ),
-            'h': (
-                
-            ) 
+            'a': (),
+            'b': (),
+            'c': (),
+            'd': (),
+            'e': (),
+            'f': (),
+            'g': (),
+            'h': ()
         },
         6: {
-           'a': (
-               
-            ),
-            'b': (
-
-            ),
-            'c': (
-
-            ),
-            'd': (
-
-            ),
-            'e': (
-
-            ),
-            'f': (
-
-            ),
-            'g': (
-
-            ),
-            'h': (
-                
-            ) 
+            'a': (),
+            'b': (),
+            'c': (),
+            'd': (),
+            'e': (),
+            'f': (),
+            'g': (),
+            'h': ()
         },
         7: {
            'a': (
-               
+                'Pawn',
+                Movements.pawn
             ),
             'b': (
-
+                'Pawn',
+                Movements.pawn
             ),
             'c': (
-
+                'Pawn',
+                Movements.pawn
             ),
             'd': (
-
+                'Pawn',
+                Movements.pawn
             ),
             'e': (
-
+                'Pawn',
+                Movements.pawn
             ),
             'f': (
-
+                'Pawn',
+                Movements.pawn
             ),
             'g': (
-
+                'Pawn',
+                Movements.pawn
             ),
             'h': (
-                
-            ) 
+                'Pawn',
+                Movements.pawn
+            )  
         },
         8: {
            'a': (
@@ -247,22 +205,28 @@ class ChessPiece(GamePiece):
                 Movements.rook
             ),
             'b': (
-
+                'Knight',
+                Movements.knight
             ),
             'c': (
-
+                'Bishop',
+                Movements.bishop
             ),
             'd': (
-
+                'Queen',
+                Movements.queen
             ),
             'e': (
-
+                'King',
+                Movements.king
             ),
             'f': (
-
+                'Bishop',
+                Movements.bishop
             ),
             'g': (
-
+                'Knight',
+                Movements.knight
             ),
             'h': (
                 'Rook',
@@ -270,9 +234,12 @@ class ChessPiece(GamePiece):
             )
         }
     }
+
     def __init__(self, start, row, column):
         if start:
-            self.name, self.movments = self.start_map[row][column]
+            self.name, self.movments = 'Empty', None
+            if len(self.start_map[row][column]) > 0:
+                self.name, self.movments = self.start_map[row][column]
 
     def get_name(self):
         return self.name
